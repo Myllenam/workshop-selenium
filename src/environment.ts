@@ -3,6 +3,5 @@ export const environment = {
     delay: false,
     delayTimeout: 2 * 1000,
     timeout: 60 * 1000,
-    background: false,
   }
   
