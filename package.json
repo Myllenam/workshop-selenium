@@ -4,16 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:chrome": "cross-env BROWSER=chrome vitest",
+    "test": "npm run test:chrome",
+    "build": "tsc"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Myllenam/workshop-selenium.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Myllenam/workshop-selenium/issues"
-  },
-  "homepage": "https://github.com/Myllenam/workshop-selenium#readme"
+  "type": "module",
+  "devDependencies": {
+    "@types/selenium-webdriver": "^4.1.26",
+    "chromedriver": "^128.0.1",
+    "cross-env": "^7.0.3",
+    "selenium-webdriver": "^4.10.0",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  }
 }
