@@ -9,7 +9,7 @@ export class SeleniumDriver implements IDriver {
   private useDelay = environment.delay;
 
   constructor() {
-    this.driver =  new Builder().forBrowser(Browser.EDGE).build();
+    this.driver =  new Builder().forBrowser(Browser.CHROME).build();
   }
 
   private async delay() {
