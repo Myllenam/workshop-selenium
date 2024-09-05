@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:chrome": "cross-env BROWSER=chrome vitest",
-    "test": "npm run test:chrome",
+    "test:browser": "cross-env BROWSER=chrome vitest",
+    "test": "npm run test:browser",
     "build": "tsc"
   },
   "type": "module",
