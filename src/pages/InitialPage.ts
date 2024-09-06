@@ -22,4 +22,5 @@ export class InitialPage {
   async awaitShowPaginaVisita() {
     await this.driver.wait(this.testeVisita)
   }
+
 }

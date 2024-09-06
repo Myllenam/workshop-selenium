@@ -16,9 +16,9 @@ export class LeticiaFlow extends DefaultFlow {
     await this.initialPage.awaitShowPage();
     await this.driver.sleep(2000);
     await this.initialPage.clicarBotaoVisita();
-    await this.driver.sleep(8000);
+    await this.driver.sleep(5000);
     await this.initialPage.awaitShowPaginaVisita();
-    await this.driver.sleep(8000);
+    await this.driver.sleep(5000);
 
   }
 }
