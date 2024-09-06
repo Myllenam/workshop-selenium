@@ -12,4 +12,5 @@ export class InitialPage {
   async awaitShowPage() {
     await this.driver.wait(this.page)
   }
+
 }

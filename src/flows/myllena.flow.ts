@@ -11,9 +11,10 @@ export class TestFlow extends DefaultFlow {
     this.initialPage = new InitialPage(this.driver);
   }
 
-  async successFlow() {
+  async detailsFlow() {
     await this.driver.sleep(2000);
     await this.initialPage.awaitShowPage();
+    await this.driver.sleep(2000);
     expect(await this.driver.getCurrentUrl()).toBe(this.projectUrl);
   }
 }
