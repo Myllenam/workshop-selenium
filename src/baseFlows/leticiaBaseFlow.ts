@@ -22,4 +22,5 @@ export class LeticiaBaseFlow {
   async awaitShowPaginaVisita() {
     await this.driver.wait(this.testeVisita)
   }
+}
 
