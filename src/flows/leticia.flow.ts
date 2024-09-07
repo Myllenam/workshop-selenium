@@ -1,14 +1,14 @@
 import { expect } from "vitest";
 import { IDriver } from "src/drivers";
-import { InitialPage } from 'src/pages/InitialPage';
+import { LeticiaBaseFlow } from 'src/baseFlows/leticiaBaseFlow';
 import { DefaultFlow } from "./default.flow";
 
 export class LeticiaFlow extends DefaultFlow {
-  private initialPage: InitialPage;
+  private leticiaBaseFlow: LeticiaBaseFlow;
 
   constructor(driver: IDriver) {
     super(driver);
-    this.initialPage = new InitialPage(this.driver);
+    this.leticiaBaseFlow = new LeticiaBaseFlow(this.driver);
   }
 
   async vistasIncriveisFlow() {
