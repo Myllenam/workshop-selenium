@@ -35,6 +35,13 @@ export class SeleniumDriver implements IDriver {
     );
     await this.delay();
   }
+  async waitText(text: string): Promise<void> {
+    await this.driver.wait(
+      until.elementLocated(By.css(text)),
+      environment.timeout
+    );
+    await this.delay();
+  }
   async getByText(text: string): Promise<void> {
     await this.driver.wait(
       until.elementLocated(By.linkText(text)),

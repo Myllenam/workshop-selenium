@@ -7,5 +7,6 @@ export interface IDriver {
     input(element: string, value: string): Promise<void>;
     wait(element: string): Promise<void>;
     sleep(ms: number): Promise<void>;
-  }
+    waitText(text: string): Promise<void>;
+}
   
