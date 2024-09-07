@@ -1,9 +1,9 @@
 import { expect } from "vitest";
 import { IDriver } from "src/drivers";
-import { LeticiaBaseFlow} from 'src/baseFlows/leticiaBaseFlow';
+import { LeticiaBaseFlow } from 'src/baseFlows/leticiaBaseFlow';
 import { DefaultFlow } from "./default.flow";
 
-export class TestFlow extends DefaultFlow {
+export class LeticiaFlow extends DefaultFlow {
   private leticiaBaseFlow: LeticiaBaseFlow;
 
   constructor(driver: IDriver) {
@@ -11,10 +11,14 @@ export class TestFlow extends DefaultFlow {
     this.leticiaBaseFlow = new LeticiaBaseFlow(this.driver);
   }
 
-  async detailsFlow() {
+  async vistasIncriveisFlow() {
     await this.driver.sleep(2000);
     await this.initialPage.awaitShowPage();
     await this.driver.sleep(2000);
-    expect(await this.driver.getCurrentUrl()).toBe(this.projectUrl);
+    await this.initialPage.clicarBotaoVisita();
+    await this.driver.sleep(5000);
+    await this.initialPage.awaitShowPaginaVisita();
+    await this.driver.sleep(5000);
+
   }
 }
