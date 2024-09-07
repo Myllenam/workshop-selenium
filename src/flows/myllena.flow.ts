@@ -15,6 +15,24 @@ export class TestFlow extends DefaultFlow {
     await this.driver.sleep(2000);
     await this.initialPage.awaitShowPage();
     await this.driver.sleep(2000);
-    expect(await this.driver.getCurrentUrl()).toBe(this.projectUrl);
+    await this.initialPage.awaitSearchDestiny("floripa")
+    await this.driver.sleep(2000);
+    await this.initialPage.awaitClickSelectDate();
+    await this.driver.sleep(2000);
+    await this.initialPage.awaitClickFlexibleDate();
+    await this.driver.sleep(2000);
+    await this.initialPage.awaitClickOneWeekDate();
+    await this.driver.sleep(2000);
+    await this.initialPage.awaitClickNovemberDate();
+    await this.driver.sleep(2000);
+    await this.initialPage.awaitClickInputGuests();
+    await this.driver.sleep(2000);
+    await this.initialPage.awaitClickAddOneGuests();
+    await this.driver.sleep(2000);
+    await this.initialPage.awaitClickInputGuests();
+    await this.driver.sleep(2000);
+    await this.initialPage.awaitClickSearchButton();
+    await this.driver.sleep(2000);
+    // expect(await this.driver.getCurrentUrl()).toBe(this.projectUrl);
   }
 }

@@ -9,7 +9,7 @@ export class SeleniumDriver implements IDriver {
   private useDelay = environment.delay;
 
   constructor() {
-    this.driver =  new Builder().forBrowser(Browser.CHROME).build();
+    this.driver =  new Builder().forBrowser(Browser.FIREFOX).build();
   }
 
   private async delay() {
@@ -31,6 +31,13 @@ export class SeleniumDriver implements IDriver {
   async wait(element: string): Promise<void> {
     await this.driver.wait(
       until.elementLocated(By.xpath(element)),
+      environment.timeout
+    );
+    await this.delay();
+  }
+  async getByText(text: string): Promise<void> {
+    await this.driver.wait(
+      until.elementLocated(By.linkText(text)),
       environment.timeout
     );
     await this.delay();
