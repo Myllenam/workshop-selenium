@@ -8,7 +8,6 @@ export class TestFlow extends DefaultFlow {
   constructor(driver: IDriver) {
     super(driver);
     this.myllenaBaseFlow = new MyllenaBaseFlow(this.driver);
-  }
 
   async detailsFlow() {
     await this.driver.sleep(2000);
