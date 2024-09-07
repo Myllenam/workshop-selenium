@@ -23,4 +23,3 @@ export class LeticiaBaseFlow {
     await this.driver.wait(this.testeVisita)
   }
 
-}
