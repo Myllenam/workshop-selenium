@@ -1,4 +1,5 @@
 export interface IDriver {
+
     click(element: string): Promise<void>;
     close(): Promise<void>;
     get(url: string): Promise<void>;
@@ -10,5 +11,6 @@ export interface IDriver {
     sleep(ms: number): Promise<void>;
     waitText(text: string): Promise<void>;
     goBack(): Promise<void>;
+
+
 }
-  

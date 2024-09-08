@@ -17,7 +17,12 @@ describe('Leticia', () => {
     await leticiaFlow.goToInitialPage();
   });
 
-  it('deve entrar na pagina de vistas incriveis', async () => {
-    await leticiaFlow.vistasIncriveisFlow();
+  it ('deve adicionar e alterar endereço', async () => {
+    await leticiaFlow.adicionarAlterarEndereco();
   });
+
+  it ('deve verificar historico de pedido', async () =>{
+    await leticiaFlow.historicoPedidos();
+  });
+
 });

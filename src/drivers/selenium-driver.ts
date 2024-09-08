@@ -1,4 +1,11 @@
-import { Browser, Builder, By, WebDriver, until } from "selenium-webdriver";
+import {
+  Browser,
+  Builder,
+  By,
+  Key,
+  WebDriver,
+  until,
+} from "selenium-webdriver";
 
 import { IDriver } from "src/drivers";
 import { environment } from "src/environment";
@@ -9,7 +16,7 @@ export class SeleniumDriver implements IDriver {
   private useDelay = environment.delay;
 
   constructor() {
-    this.driver =  new Builder().forBrowser(Browser.EDGE).build();
+    this.driver =  new Builder().forBrowser(Browser.CHROME).build();
   }
 
   private async delay() {
@@ -18,6 +25,10 @@ export class SeleniumDriver implements IDriver {
 
   async get(url: string): Promise<void> {
     await this.driver.get(url), environment;
+  }
+
+  async refresh(): Promise<void> {
+    await this.driver.navigate().refresh();
   }
 
   async getCurrentUrl(): Promise<string> {
@@ -49,9 +60,13 @@ export class SeleniumDriver implements IDriver {
     await this.delay();
     const actualText = await foundElement.getText();
     if (actualText === text) {
-      console.log(`Validação bem-sucedida: o texto "${actualText}" corresponde ao esperado.`);
+      console.log(
+        `Validação bem-sucedida: o texto "${actualText}" corresponde ao esperado.`
+      );
     } else {
-      throw new Error(`Validação falhou: esperado "${text}", mas obteve "${actualText}".`);
+      throw new Error(
+        `Validação falhou: esperado "${text}", mas obteve "${actualText}".`
+      );
     }
   }
 
@@ -69,6 +84,12 @@ export class SeleniumDriver implements IDriver {
   async click(element: string): Promise<void> {
     await this.driver.findElement(By.xpath(element)).click();
     await this.delay();
+  }
+  async arrowUp(): Promise<void> {
+    await this.driver.actions().sendKeys(Key.ARROW_UP).perform();
+  }
+  async enter(): Promise<void> {
+    await this.driver.actions().sendKeys(Key.ENTER).perform();
   }
 
   async input(element: string, value: string) {

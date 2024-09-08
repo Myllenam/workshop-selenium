@@ -18,6 +18,7 @@ export class MyllenaBaseFlow {
   private cartPage: string = '//*[@id="sc-active-cart"]/div/div/div/h2';
   private addAnotherMouse: string='//*[@id="a-autoid-0-announce"]'
   private twomouses: string='//*[@id="quantity_2"]'
+    private nomouses: string='//*[@id="a-popover-3"]/div/div/ul/li[1]'
   private totalValue='//*[@id="sc-subtotal-amount-buybox"]/span'
   
   constructor(driver: IDriver) {
@@ -70,7 +71,18 @@ export class MyllenaBaseFlow {
   async awaitClickAddTwoMouse() {
     await this.driver.click(this.twomouses);
   }
+  async awaitFindAddNoMouse() {
+    await this.driver.wait(this.nomouses);
+  }
+  async awaitClickAddNoMouse() {
+    await this.driver.click(this.nomouses);
+  }
+
   async awaitMouseTotalValue() {
   await this.driver.getByText(this.totalValue, "R$ 844,81");
   }
+  async awaitMouseNewTotalValue() {
+    await this.driver.getByText(this.totalValue, "R$ 519,99");
+    }
+
 }
