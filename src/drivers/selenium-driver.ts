@@ -37,7 +37,7 @@ export class SeleniumDriver implements IDriver {
   }
   async waitText(text: string): Promise<void> {
     await this.driver.wait(
-      until.elementLocated(By.css(text)),
+      until.elementLocated(By.partialLinkText(text)),
       environment.timeout
     );
     await this.delay();

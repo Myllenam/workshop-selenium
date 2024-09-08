@@ -17,7 +17,7 @@ describe('Myllena', () => {
     await testFlow.goToInitialPage();
   });
 
-  it('deve verficar a exibição dos detalhes de uma propriedade', async () => {
+  it('deve verficar o fluxo de adicionar itens ao carrinho', async () => {
     await testFlow.detailsFlow();
   });
 });
