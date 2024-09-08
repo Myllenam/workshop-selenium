@@ -1,9 +1,8 @@
 import { IDriver } from "src/drivers";
 import { MyllenaBaseFlow } from 'src/baseFlows/myllenaBaseFlow';
 import { DefaultFlow } from "./default.flow";
-import { expect } from "vitest";
 
-export class TestFlow extends DefaultFlow {
+export class MyllenaFlow extends DefaultFlow {
   private myllenaBaseFlow: MyllenaBaseFlow;
 
   constructor(driver: IDriver) {

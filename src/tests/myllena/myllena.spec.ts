@@ -1,23 +1,25 @@
 import { describe, beforeEach, it, beforeAll, afterAll } from 'vitest';
-import { TestFlow } from 'src/flows/myllena.flow';
-import { SeleniumDriver } from 'src/drivers';
+
+import {MyllenaFlow} from "../../flows/myllena.flow"
+import {SeleniumDriver} from "../../drivers/selenium-driver"
+
 
 describe('Myllena', () => {
-  let testFlow: TestFlow;
+  let myllenaFlow: MyllenaFlow;
 
   beforeAll(async () => {
-    testFlow = new TestFlow(new SeleniumDriver());
+    myllenaFlow = new MyllenaFlow(new SeleniumDriver());
   });
 
   afterAll(async () => {
-    await testFlow.closeDriver();
+    await myllenaFlow.closeDriver();
   });
 
   beforeEach(async () => {
-    await testFlow.goToInitialPage();
+    await myllenaFlow.goToInitialPage();
   });
 
   it('deve verficar o fluxo de adicionar itens ao carrinho', async () => {
-    await testFlow.detailsFlow();
+    await myllenaFlow.detailsFlow();
   });
 });
