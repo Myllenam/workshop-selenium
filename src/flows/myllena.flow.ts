@@ -13,17 +13,17 @@ export class MyllenaFlow extends DefaultFlow {
     await this.myllenaBaseFlow.awaitShowPage();
     await this.driver.sleep(2000);
     await this.myllenaBaseFlow.awaitSearchValue("teclado rosa logitech");
-    await this.driver.sleep(2000);
+    await this.driver.sleep(1000);
     await this.myllenaBaseFlow.awaitClickSearchButton();
-    await this.driver.sleep(2000);
+    await this.driver.sleep(1000);
     await this.myllenaBaseFlow.awaitClickKeyboard();
-    await this.driver.sleep(2000);
+    await this.driver.sleep(1000);
     await this.myllenaBaseFlow.awaitClickAddToCart();
-    await this.driver.sleep(2000);
+    await this.driver.sleep(1000);
     await this.myllenaBaseFlow.awaitShowDontAcceptGArantee();
-    await this.driver.sleep(2000);
+    await this.driver.sleep(1000);
     await this.myllenaBaseFlow.awaitClickDontAcceptGArantee();
-    await this.driver.sleep(2000);
+    await this.driver.sleep(1000);
     await this.myllenaBaseFlow.awaitShowAddedWithSuccess();
     await this.driver.sleep(2000);
     await this.myllenaBaseFlow.awaitSearchValue("mouse rosa logitech");
@@ -54,6 +54,17 @@ export class MyllenaFlow extends DefaultFlow {
     await this.myllenaBaseFlow.awaitClickAddTwoMouse();
     await this.driver.sleep(2000);
     await this.myllenaBaseFlow.awaitMouseTotalValue();
+    await this.driver.sleep(2000);
+    await this.driver.refresh();
+    await this.driver.sleep(2000);
+    await this.myllenaBaseFlow.awaitClickAddAnotherMouse();
+    await this.driver.sleep(2000);
+    await this.driver.arrowUp();
+    await this.driver.sleep(1000);
+    await this.driver.arrowUp();
+    await this.driver.sleep(2000);
+    await this.driver.enter();
+    await this.myllenaBaseFlow.awaitMouseNewTotalValue();
     await this.driver.sleep(2000);
   }
 }
