@@ -19,7 +19,10 @@ describe('Myllena', () => {
     await myllenaFlow.goToInitialPage();
   });
 
-  it('deve verficar o fluxo de adicionar itens ao carrinho', async () => {
-    await myllenaFlow.detailsFlow();
+  // it('deve verficar o fluxo de adicionar itens ao carrinho', async () => {
+  //   await myllenaFlow.cartFlow();
+  // });
+  it('deve verficar o fluxo de adicionar itens ao carrinho e de modificar suas quantidades', async () => {
+    await myllenaFlow.alternativeCartFlow();
   });
 });

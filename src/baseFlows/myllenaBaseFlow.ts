@@ -15,7 +15,11 @@ export class MyllenaBaseFlow {
   private mouseDetails: string =
     "/html/body/div[1]/div[1]/div[1]/div[1]/div/span[1]/div[1]/div[13]/div/div/span/div/div/div[1]/span/a/div/img";
   private cart: string = '//*[@id="sw-gtc"]/span/a';
-  private cartPage:string='//*[@id="sc-active-cart"]/div/div/div/h2'
+  private cartPage: string = '//*[@id="sc-active-cart"]/div/div/div/h2';
+  private addAnotherMouse: string='//*[@id="a-autoid-0-announce"]'
+  private twomouses: string='//*[@id="quantity_2"]'
+  private totalValue='//*[@id="sc-subtotal-amount-buybox"]/span'
+  
   constructor(driver: IDriver) {
     this.driver = driver;
   }
@@ -60,4 +64,13 @@ export class MyllenaBaseFlow {
     await this.driver.wait(this.cartPage);
   }
 
+  async awaitClickAddAnotherMouse() {
+    await this.driver.click(this.addAnotherMouse);
+  }
+  async awaitClickAddTwoMouse() {
+    await this.driver.click(this.twomouses);
+  }
+  async awaitMouseTotalValue() {
+  await this.driver.getByText(this.totalValue, "R$ 844,81");
+  }
 }
