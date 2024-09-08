@@ -9,7 +9,7 @@ export class AnaFlow extends DefaultFlow {
     super(driver);
     this.anaBaseFlow = new AnaBaseFlow(this.driver);
   }
-  async detailsFlow() {
+  async resultadoPesquisaFlow() {
     await this.driver.sleep(2000);
     await this.anaBaseFlow.awaitShowPage();
     await this.driver.sleep(2000);
