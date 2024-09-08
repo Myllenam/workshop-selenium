@@ -10,7 +10,9 @@ describe("Myllena", () => {
     myllenaFlow = new MyllenaFlow(new SeleniumDriver());
   });
 
-  afterAll(async () => {});
+  afterAll(async () => {
+    await myllenaFlow.closeDriver();
+  });
 
   beforeEach(async () => {
     await myllenaFlow.goToInitialPage();
@@ -23,4 +25,5 @@ describe("Myllena", () => {
   it("deve verficar o fluxo de adicionar itens ao carrinho e de modificar suas quantidades", async () => {
     await myllenaFlow.alternativeCartFlow();
   });
+
 });
