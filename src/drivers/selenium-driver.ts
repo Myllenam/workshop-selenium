@@ -46,6 +46,7 @@ export class SeleniumDriver implements IDriver {
     );
     await this.delay();
   }
+  
   async waitText(text: string): Promise<void> {
     await this.driver.wait(
       until.elementLocated(By.partialLinkText(text)),
