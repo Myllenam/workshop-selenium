@@ -1,5 +1,5 @@
 import { IDriver } from "src/drivers";
-import { MyllenaBaseFlow } from 'src/baseFlows/myllenaBaseFlow';
+import { MyllenaBaseFlow } from "src/baseFlows/myllenaBaseFlow";
 import { DefaultFlow } from "./default.flow";
 
 export class MyllenaFlow extends DefaultFlow {
@@ -9,8 +9,7 @@ export class MyllenaFlow extends DefaultFlow {
     super(driver);
     this.myllenaBaseFlow = new MyllenaBaseFlow(this.driver);
   }
-  async detailsFlow() {
-    await this.driver.sleep(2000);
+  async defaultCartFlow() {
     await this.myllenaBaseFlow.awaitShowPage();
     await this.driver.sleep(2000);
     await this.myllenaBaseFlow.awaitSearchValue("teclado rosa logitech");
@@ -43,6 +42,18 @@ export class MyllenaFlow extends DefaultFlow {
     await this.driver.sleep(2000);
     await this.myllenaBaseFlow.awaitShowCartValue();
     await this.driver.sleep(1000);
-   
+  }
+  async cartFlow() {
+    await this.defaultCartFlow();
+  }
+
+  async alternativeCartFlow() {
+    await this.defaultCartFlow();
+    await this.myllenaBaseFlow.awaitClickAddAnotherMouse();
+    await this.driver.sleep(2000);
+    await this.myllenaBaseFlow.awaitClickAddTwoMouse();
+    await this.driver.sleep(2000);
+    await this.myllenaBaseFlow.awaitMouseTotalValue();
+    await this.driver.sleep(2000);
   }
 }

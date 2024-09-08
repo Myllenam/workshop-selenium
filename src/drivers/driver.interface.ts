@@ -3,7 +3,7 @@ export interface IDriver {
     close(): Promise<void>;
     get(url: string): Promise<void>;
     getCurrentUrl(): Promise<string>;
-    getByText(text: string): Promise<void>;
+    getByText(element:string,text: string): Promise<void>;
     input(element: string, value: string): Promise<void>;
     wait(element: string): Promise<void>;
     sleep(ms: number): Promise<void>;
