@@ -19,20 +19,19 @@ export class AnaFlow extends DefaultFlow {
     await this.driver.sleep(2000);
     await this.anaBaseFlow.awaitClickFirstResult();
     await this.driver.sleep(2000);
-    await this.anaBaseFlow.awaitValidateResults();
+    await this.anaBaseFlow.awaitValidateResults("Samsung");
     await this.driver.sleep(2000);
-    /*await this.anaBaseFlow.awaitShowPage();
-    await this.driver.sleep(2000);
-    await this.anaBaseFlow.awaitSearchValue("smartphone Samsung");
-    await this.driver.sleep(2000);
-    await this.anaBaseFlow.awaitClickSearchButton();
+
+    //próxima página
+    
+    await this.driver.goBack();
     await this.driver.sleep(2000);
     await this.anaBaseFlow.awaitClickNextPage();
     await this.driver.sleep(2000);
     await this.anaBaseFlow.awaitClickSecondResult();
-    await this.driver.sleep(2000);*/
-    /*await this.anaBaseFlow.awaitValidateResults();
-    await this.driver.sleep(2000);*/
+    await this.driver.sleep(2000);
+    await this.anaBaseFlow.awaitValidateResults("Samsung");
+    await this.driver.sleep(2000);
    
   }
 }

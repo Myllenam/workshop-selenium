@@ -34,17 +34,8 @@ export class AnaBaseFlow {
     await this.driver.click(this.resultDetails);
   }
 
-  async awaitValidateResults () {
-    await this.driver.wait(this.resultTitle);
-    /*const titulo = this.resultTitle.getByText;
-    const pesquisa = this.searchInput.getByText;
-
-    // Verifica se a pesquisa está presente no titulo
-    if (titulo.includes(pesquisa)) {
-        console.log("TEM A PALVRA");
-    } else {
-        console.log(this.resultTitle);
-    }*/
+  async awaitValidateResults (value: string) {
+    await this.driver.getByTextStringExists(this.resultTitle, value);
   }
 
   async awaitClickNextPage() {
