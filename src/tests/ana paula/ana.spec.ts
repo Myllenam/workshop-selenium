@@ -20,6 +20,6 @@ describe('Ana Paula', () => {
   });
 
   it('deve verficar o fluxo de resultados esperados', async () => {
-    await anaFlow.detailsFlow();
+    await anaFlow.resultadoPesquisaFlow();
   });
 });
