@@ -16,7 +16,7 @@ export class SeleniumDriver implements IDriver {
   private useDelay = environment.delay;
 
   constructor() {
-    this.driver = new Builder().forBrowser(Browser.CHROME).build();
+    this.driver =  new Builder().forBrowser(Browser.CHROME).build();
   }
 
   private async delay() {
@@ -46,6 +46,7 @@ export class SeleniumDriver implements IDriver {
     );
     await this.delay();
   }
+  
   async waitText(text: string): Promise<void> {
     await this.driver.wait(
       until.elementLocated(By.partialLinkText(text)),
@@ -53,6 +54,8 @@ export class SeleniumDriver implements IDriver {
     );
     await this.delay();
   }
+
+
   async getByText(element: string, text: string): Promise<void> {
     const foundElement = await this.driver.findElement(By.xpath(element));
     await this.delay();
@@ -65,6 +68,17 @@ export class SeleniumDriver implements IDriver {
       throw new Error(
         `Validação falhou: esperado "${text}", mas obteve "${actualText}".`
       );
+    }
+  }
+
+  async getByTextStringExists(element: string, text: string): Promise<void> {
+    const foundElement = await this.driver.findElement(By.xpath(element));
+    await this.delay();
+    const actualText = await foundElement.getText();
+   if (actualText.includes(text)) {
+      console.log(`Validação bem-sucedida: o fragmento "${actualText}" corresponde ao esperado.`);
+    } else {
+      throw new Error(`Validação falhou: esperado "${text}", mas obteve "${actualText}".`);
     }
   }
 
@@ -86,5 +100,9 @@ export class SeleniumDriver implements IDriver {
 
   async sleep(ms: number): Promise<void> {
     await this.driver.sleep(ms);
+  }
+
+  async goBack(): Promise<void> {
+    await this.driver.navigate().back();
   }
 }
