@@ -9,7 +9,7 @@ export class AnaFlow extends DefaultFlow {
     super(driver);
     this.anaBaseFlow = new AnaBaseFlow(this.driver);
   }
-  async resultadoPesquisaFlow() {
+  /*async resultadoPesquisaFlow() {
     await this.driver.sleep(2000);
     await this.anaBaseFlow.awaitShowPage();
     await this.driver.sleep(2000);
@@ -33,5 +33,18 @@ export class AnaFlow extends DefaultFlow {
     await this.anaBaseFlow.awaitValidateResults("Samsung");
     await this.driver.sleep(2000);
    
-  }
+  }*/
+
+    async resultadoPesquisaFlow() {
+      await this.driver.sleep(2000);
+      await this.anaBaseFlow.awaitShowPage();
+      await this.driver.sleep(2000);
+      await this.anaBaseFlow.awaitSearchValue("smartphone Samsung");
+      await this.driver.sleep(2000);
+      await this.anaBaseFlow.awaitClickSearchButton();
+      await this.driver.sleep(2000);
+      await this.anaBaseFlow.awaitClickCheckBox();
+      await this.driver.sleep(2000);
+     
+    }
 }

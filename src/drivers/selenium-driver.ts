@@ -16,7 +16,7 @@ export class SeleniumDriver implements IDriver {
   private useDelay = environment.delay;
 
   constructor() {
-    this.driver =  new Builder().forBrowser(Browser.CHROME).build();
+    this.driver =  new Builder().forBrowser(Browser.EDGE).build();
   }
 
   private async delay() {
@@ -88,6 +88,10 @@ export class SeleniumDriver implements IDriver {
   }
   async arrowUp(): Promise<void> {
     await this.driver.actions().sendKeys(Key.ARROW_UP).perform();
+  }
+
+  async arrowLeft(): Promise<void> {
+    await this.driver.actions().sendKeys(Key.ARROW_LEFT).perform();
   }
   async enter(): Promise<void> {
     await this.driver.actions().sendKeys(Key.ENTER).perform();
