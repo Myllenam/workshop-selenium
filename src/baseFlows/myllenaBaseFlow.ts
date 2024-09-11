@@ -13,14 +13,14 @@ export class MyllenaBaseFlow {
   private addedWithSuccess: string =
     "/html/body/div[1]/div[1]/div/div[1]/div[1]/div[2]/div/div/div/div/h1";
   private mouseDetails: string =
-    "/html/body/div[1]/div[1]/div[1]/div[1]/div/span[1]/div[1]/div[13]/div/div/span/div/div/div[1]/span/a/div/img";
+    "/html/body/div[1]/div[1]/div[1]/div[1]/div/span[1]/div[1]/div[9]/div/div/span/div/div/div[1]/span/a/div/img";
   private cart: string = '//*[@id="sw-gtc"]/span/a';
   private cartPage: string = '//*[@id="sc-active-cart"]/div/div/div/h2';
-  private addAnotherMouse: string='//*[@id="a-autoid-0-announce"]'
-  private twomouses: string='//*[@id="quantity_2"]'
-    private nomouses: string='//*[@id="a-popover-3"]/div/div/ul/li[1]'
-  private totalValue='//*[@id="sc-subtotal-amount-buybox"]/span'
-  
+  private addAnotherMouse: string = '//*[@id="a-autoid-0-announce"]';
+  private twomouses: string = '//*[@id="quantity_2"]';
+  private nomouses: string = '//*[@id="a-popover-3"]/div/div/ul/li[1]';
+  private totalValue = '//*[@id="sc-subtotal-amount-buybox"]/span';
+
   constructor(driver: IDriver) {
     this.driver = driver;
   }
@@ -79,10 +79,9 @@ export class MyllenaBaseFlow {
   }
 
   async awaitMouseTotalValue() {
-  await this.driver.getByText(this.totalValue, "R$ 844,81");
+    await this.driver.getByText(this.totalValue, "R$ 1.271,99");
   }
   async awaitMouseNewTotalValue() {
     await this.driver.getByText(this.totalValue, "R$ 519,99");
-    }
-
+  }
 }
