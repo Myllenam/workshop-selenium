@@ -20,6 +20,11 @@ describe('Ana Paula', () => {
   });
 
   it('deve verficar o fluxo de resultados esperados', async () => {
-    await anaFlow.resultadoPesquisaFlow();
+    await anaFlow.resultSearchFlow();
   });
+
+  it('deve verficar o fluxo de login e consulta de lista de compras do usuario', async () => {
+    await anaFlow.loginAndWishListFlow('exemplo@email.com','exemplos3nh4'); //aqui precisa colocar um login valido antes de rodar o teste
+  });
+
 });

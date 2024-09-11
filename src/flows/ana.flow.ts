@@ -9,7 +9,8 @@ export class AnaFlow extends DefaultFlow {
     super(driver);
     this.anaBaseFlow = new AnaBaseFlow(this.driver);
   }
-  async resultadoPesquisaFlow() {
+  
+  async resultSearchFlow() {
     await this.driver.sleep(2000);
     await this.anaBaseFlow.awaitShowPage();
     await this.driver.sleep(2000);
@@ -23,7 +24,6 @@ export class AnaFlow extends DefaultFlow {
     await this.driver.sleep(2000);
 
     //próxima página
-    
     await this.driver.goBack();
     await this.driver.sleep(2000);
     await this.anaBaseFlow.awaitClickNextPage();
@@ -34,4 +34,28 @@ export class AnaFlow extends DefaultFlow {
     await this.driver.sleep(2000);
    
   }
+
+    async loginAndWishListFlow(email: string, password: string) {
+      //login
+      await this.driver.sleep(2000);
+      await this.anaBaseFlow.awaitShowPage();
+      await this.driver.sleep(2000);
+      await this.anaBaseFlow.awaitClickLoginButton();
+      await this.driver.sleep(2000);
+      await this.anaBaseFlow.awaitEmailValue(email);
+      await this.driver.sleep(2000);
+      await this.anaBaseFlow.awaitClickContinueButton();
+      await this.driver.sleep(2000);
+      await this.anaBaseFlow.awaitPasswordValue(password);
+      await this.driver.sleep(2000);
+      await this.anaBaseFlow.awaitClickSignIn();
+      await this.driver.sleep(10000);
+
+      //consultar lista de desejos
+      await this.anaBaseFlow.awaitClickNavList();
+      await this.driver.sleep(3000);
+      await this.anaBaseFlow.awaitClickWishList();
+      await this.driver.sleep(2000);
+
+    }
 }

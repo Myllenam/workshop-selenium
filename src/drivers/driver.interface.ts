@@ -14,6 +14,7 @@ export interface IDriver {
     sleep(ms: number): Promise<void>;
     waitText(text: string): Promise<void>;
     goBack(): Promise<void>;
+    hoverElement(xpath: string): Promise<void>;
 
 
 }

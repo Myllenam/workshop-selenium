@@ -5,6 +5,7 @@ import {
   Key,
   WebDriver,
   until,
+  Actions,
 } from "selenium-webdriver";
 
 import { IDriver } from "src/drivers";
@@ -12,11 +13,13 @@ import { environment } from "src/environment";
 
 export class SeleniumDriver implements IDriver {
   private driver: WebDriver;
+  private actions: Actions;
   private delayTime = environment.delayTimeout;
   private useDelay = environment.delay;
 
   constructor() {
-    this.driver =  new Builder().forBrowser(Browser.CHROME).build();
+    this.driver =  new Builder().forBrowser(Browser.EDGE).build();
+    this.actions = this.driver.actions();
   }
 
   private async delay() {
@@ -86,9 +89,16 @@ export class SeleniumDriver implements IDriver {
     await this.driver.findElement(By.xpath(element)).click();
     await this.delay();
   }
+
+  async hoverElement(xpath: string): Promise<void> {
+    const element = await this.driver.findElement(By.xpath(xpath));
+    await this.actions.move({ origin: element }).perform(); //passar o mouse por cima
+  }
+
   async arrowUp(): Promise<void> {
     await this.driver.actions().sendKeys(Key.ARROW_UP).perform();
   }
+
   async enter(): Promise<void> {
     await this.driver.actions().sendKeys(Key.ENTER).perform();
   }
