@@ -12,13 +12,13 @@ Aplicar técnicas de automação de testes E2E, validando as funcionalidades do 
 
 🛠️ Tecnologias Utilizadas
 
-    Selenium
+    Selenium WebDriver
     : Automação de testes em navegadores.
     TypeScript
     : Desenvolvimento dos scripts de teste.
     Node.js
     : Ambiente de execução do projeto.
-    Mocha (ou outro framework, se aplicável)
+    Vitest
     : Framework de teste.
 
 🚀 Como Executar o Projeto
