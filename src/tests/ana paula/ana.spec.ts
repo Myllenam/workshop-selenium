@@ -24,7 +24,7 @@ describe('Ana Paula', () => {
   });
 
   it('deve verficar o fluxo de login e consulta de lista de compras do usuario', async () => {
-    await anaFlow.loginAndWishListFlow('exemplo@email.com','exemplos3nh4'); //aqui precisa colocar um login valido antes de rodar o teste
+    await anaFlow.loginAndWishListFlow('insira-um-email','insira-uma-senha'); //aqui precisa colocar um login valido antes de rodar o teste
   });
 
 });

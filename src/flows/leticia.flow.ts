@@ -15,11 +15,11 @@ export class LeticiaFlow extends DefaultFlow {
     await this.driver.sleep(2000);
     await this.leticiaBaseFlow.awaitMenuAccount();
     await this.driver.sleep(2000);
-    await this.leticiaBaseFlow.awaitInputEmailValue("leticia.butel18@gmail.com")
+    await this.leticiaBaseFlow.awaitInputEmailValue("insira-um-email")
     await this.driver.sleep(1000);
     await this.leticiaBaseFlow.awaitClickButtonContinue();
     await this.driver.sleep(1000);
-    await this.leticiaBaseFlow.awaitInputPasswordValue("Lktb_1810");
+    await this.leticiaBaseFlow.awaitInputPasswordValue("insira-uma-senha");
     await this.driver.sleep(1000);
     await this.leticiaBaseFlow.awaitButtonLogin();
     await this.driver.sleep(2000);
@@ -29,15 +29,17 @@ export class LeticiaFlow extends DefaultFlow {
     await this.driver.sleep(2000);
     await this.leticiaBaseFlow.awaitAddAdress();
     await this.driver.sleep(2000);
-    await this.leticiaBaseFlow.awaitInputCep("89140000");
+    await this.leticiaBaseFlow.awaitInputCep("insira-um-cep");
     await this.driver.sleep(3000);
     await this.leticiaBaseFlow.awaitClickInputAdress();
-    await this.driver.sleep(3000);
-    await this.leticiaBaseFlow.awaitInputAdress("R. Dr. Getúlio Vargas");
     await this.driver.sleep(2000);
-    await this.leticiaBaseFlow.awaitInputNumber("2345");
+    await this.leticiaBaseFlow.awaitClickInputAdress();
     await this.driver.sleep(2000);
-    await this.leticiaBaseFlow.awaitInputNeighborhood("Bela Vista");
+    await this.leticiaBaseFlow.awaitInputAdress("insira-um-endereço");
+    await this.driver.sleep(2000);
+    await this.leticiaBaseFlow.awaitInputNumber("insira-um-numero");
+    await this.driver.sleep(2000);
+    await this.leticiaBaseFlow.awaitInputNeighborhood("insira-um-bairro");
     await this.driver.sleep(2000);
     await this.leticiaBaseFlow.awaitButtonSubmit();
     await this.driver.sleep(2000);
@@ -45,12 +47,12 @@ export class LeticiaFlow extends DefaultFlow {
     await this.driver.sleep(2000);
     await this.leticiaBaseFlow.awaitEditAdress();
     await this.driver.sleep(2000);
-    await this.leticiaBaseFlow.awaitEditNumber("85");
+    await this.leticiaBaseFlow.awaitEditNumber("");
     await this.driver.sleep(2000);
     await this.leticiaBaseFlow.awaitSubmitEdit();
     await this.driver.sleep(2000);
     await this.leticiaBaseFlow.awaitValidateAlt();
-    await this.driver.sleep(5000);
+    await this.driver.sleep(2000);
   }
 
   async historicoPedidos(){
@@ -66,6 +68,5 @@ export class LeticiaFlow extends DefaultFlow {
     await this.driver.sleep(2000);
     await this.leticiaBaseFlow.awaitValidateProduct();
     await this.driver.sleep(2000);
-
   }
 }
